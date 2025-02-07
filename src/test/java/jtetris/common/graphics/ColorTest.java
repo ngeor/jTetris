@@ -1,9 +1,9 @@
 package jtetris.common.graphics;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for {@link Color}.
@@ -18,9 +18,9 @@ public class ColorTest {
         final int blue = 3;
 
         Color color = new Color(red, green, blue);
-        assertEquals("red", red, color.getRed());
-        assertEquals("green", green, color.getGreen());
-        assertEquals("blue", blue, color.getBlue());
+        assertEquals(red, color.getRed(), "red");
+        assertEquals(green, color.getGreen(), "green");
+        assertEquals(blue, color.getBlue(), "blue");
     }
 
     @Test

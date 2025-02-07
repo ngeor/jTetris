@@ -1,12 +1,10 @@
 package jtetris.common;
 
-import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for {@link MovingShape}.
@@ -72,6 +70,6 @@ public class MovingShapeTest {
 
         // assert
         assertEquals(shapeDefinition, movingShape.getShapeDefinition());
-        assertThat(newShape.getShapeDefinition(), is(instanceOf(ShapeRotation.class)));
+        assertThat(newShape.getShapeDefinition()).isInstanceOf(ShapeRotation.class);
     }
 }

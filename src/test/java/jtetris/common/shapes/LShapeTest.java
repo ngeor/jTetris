@@ -1,10 +1,9 @@
 package jtetris.common.shapes;
 
-import jtetris.common.BlockType;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.Assert.assertEquals;
+import jtetris.common.BlockType;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for {@link LShape}.
@@ -12,16 +11,11 @@ import static org.junit.Assert.assertEquals;
  */
 @SuppressWarnings("MagicNumber")
 public class LShapeTest {
-    private LShape shape;
-
-    @Before
-    public void before() {
-        shape = new LShape();
-    }
+    private final LShape shape = new LShape();
 
     @Test
-    public void blockAt() throws Exception {
-        char[][] expected = new char[][]{
+    public void blockAt() {
+        char[][] expected = new char[][] {
             {'L', ' '},
             {'L', ' '},
             {'L', 'L'}
@@ -36,12 +30,12 @@ public class LShapeTest {
     }
 
     @Test
-    public void getColumns() throws Exception {
+    public void getColumns() {
         assertEquals(2, shape.getColumns());
     }
 
     @Test
-    public void getRows() throws Exception {
+    public void getRows() {
         assertEquals(3, shape.getRows());
     }
 }

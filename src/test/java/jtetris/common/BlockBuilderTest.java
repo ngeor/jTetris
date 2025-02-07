@@ -1,13 +1,12 @@
 package jtetris.common;
 
-import jtetris.common.shapes.*;
-import org.junit.Before;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
+import jtetris.common.shapes.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 
 /**
  * Unit test for {@link BlockBuilder}.
@@ -16,7 +15,7 @@ import static org.junit.Assert.assertThat;
 public class BlockBuilderTest {
     private BlockBuilder blockBuilder;
 
-    @Before
+    @BeforeEach
     public void before() {
         blockBuilder = new BlockBuilder();
     }
@@ -24,55 +23,54 @@ public class BlockBuilderTest {
     @Test
     public void createEmpty() {
         Shape shape = blockBuilder.create(BlockType.Empty);
-        assertThat(shape, is(instanceOf(EmptyShape.class)));
+        assertThat(shape).isInstanceOf(EmptyShape.class);
     }
 
     @Test
     public void createI() {
         Shape shape = blockBuilder.create(BlockType.I);
-        assertThat(shape, is(instanceOf(IShape.class)));
+        assertThat(shape).isInstanceOf(IShape.class);
     }
 
     @Test
     public void createJ() {
         Shape shape = blockBuilder.create(BlockType.J);
-        assertThat(shape, is(instanceOf(JShape.class)));
+        assertThat(shape).isInstanceOf(JShape.class);
     }
 
     @Test
     public void createL() {
         Shape shape = blockBuilder.create(BlockType.L);
-        assertThat(shape, is(instanceOf(LShape.class)));
+        assertThat(shape).isInstanceOf(LShape.class);
     }
 
     @Test
     public void createO() {
         Shape shape = blockBuilder.create(BlockType.O);
-        assertThat(shape, is(instanceOf(OShape.class)));
+        assertThat(shape).isInstanceOf(OShape.class);
     }
 
     @Test
     public void createS() {
         Shape shape = blockBuilder.create(BlockType.S);
-        assertThat(shape, is(instanceOf(SShape.class)));
+        assertThat(shape).isInstanceOf(SShape.class);
     }
 
     @Test
     public void createT() {
         Shape shape = blockBuilder.create(BlockType.T);
-        assertThat(shape, is(instanceOf(TShape.class)));
+        assertThat(shape).isInstanceOf(TShape.class);
     }
 
     @Test
     public void createZ() {
         Shape shape = blockBuilder.create(BlockType.Z);
-        assertThat(shape, is(instanceOf(ZShape.class)));
+        assertThat(shape).isInstanceOf(ZShape.class);
     }
 
-    @Test
-    public void createAllBlocksAreSupported() {
-        for (BlockType blockType : BlockType.values()) {
-            assertNotNull(blockType.toString(), blockBuilder.create(blockType));
-        }
+    @ParameterizedTest
+    @EnumSource(BlockType.class)
+    public void createAllBlocksAreSupported(BlockType blockType) {
+        assertThat(blockBuilder.create(blockType)).isNotNull();
     }
 }

@@ -1,9 +1,9 @@
 package jtetris.common.graphics.swing;
 
-import jtetris.common.graphics.Color;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.Assert.assertEquals;
+import jtetris.common.graphics.Color;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for {@link ColorToSwing}.
@@ -18,8 +18,8 @@ public class ColorToSwingTest {
         final int blue = 30;
         Color color = new Color(red, green, blue);
         java.awt.Color awtColor = new ColorToSwing().convert(color);
-        assertEquals("red", red, awtColor.getRed());
-        assertEquals("green", green, awtColor.getGreen());
-        assertEquals("blue", blue, awtColor.getBlue());
+        assertEquals(red, awtColor.getRed(), "red");
+        assertEquals(green, awtColor.getGreen(), "green");
+        assertEquals(blue, awtColor.getBlue(), "blue");
     }
 }

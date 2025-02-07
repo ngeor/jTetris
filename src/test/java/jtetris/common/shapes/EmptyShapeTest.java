@@ -1,34 +1,29 @@
 package jtetris.common.shapes;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for {@link EmptyShape}.
  * Created by ngeor on 16/6/2017.
  */
 public class EmptyShapeTest {
-    private EmptyShape shape;
+    private final EmptyShape shape = new EmptyShape();
 
-    @Before
-    public void before() {
-        shape = new EmptyShape();
-    }
-
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void blockAt() throws Exception {
-        shape.blockAt(0, 0);
+    @Test
+    public void blockAt() {
+        assertThatThrownBy(() -> shape.blockAt(0, 0)).isInstanceOf(IndexOutOfBoundsException.class);
     }
 
     @Test
-    public void getColumns() throws Exception {
+    public void getColumns() {
         assertEquals(0, shape.getColumns());
     }
 
     @Test
-    public void getRows() throws Exception {
+    public void getRows() {
         assertEquals(0, shape.getRows());
     }
 }

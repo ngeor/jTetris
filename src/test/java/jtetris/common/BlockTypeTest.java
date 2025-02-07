@@ -1,11 +1,10 @@
 package jtetris.common;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.EnumSet;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for {@link BlockType}.
@@ -13,7 +12,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class BlockTypeTest {
     @Test
-    public void isEmpty_onEmptyBlock_isTrue() throws Exception {
+    public void isEmpty_onEmptyBlock_isTrue() {
         assertTrue(BlockType.Empty.isEmpty());
     }
 

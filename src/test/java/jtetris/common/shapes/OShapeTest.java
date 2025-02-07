@@ -1,11 +1,9 @@
 package jtetris.common.shapes;
 
-import jtetris.common.BlockType;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.Assert.assertEquals;
+import jtetris.common.BlockType;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for {@link OShape}.
@@ -13,29 +11,24 @@ import static org.junit.Assert.assertEquals;
  */
 @SuppressWarnings("MagicNumber")
 public class OShapeTest {
-    private OShape shape;
-
-    @Before
-    public void before() {
-        shape = new OShape();
-    }
+    private final OShape shape = new OShape();
 
     @Test
-    public void blockAt() throws Exception {
+    public void blockAt() {
         for (int row = 0; row < shape.getRows(); row++) {
             for (int col = 0; col < shape.getColumns(); col++) {
-                Assert.assertEquals(BlockType.O, shape.blockAt(row, col));
+                assertEquals(BlockType.O, shape.blockAt(row, col));
             }
         }
     }
 
     @Test
-    public void getColumns() throws Exception {
+    public void getColumns() {
         assertEquals(2, shape.getColumns());
     }
 
     @Test
-    public void getRows() throws Exception {
+    public void getRows() {
         assertEquals(2, shape.getRows());
     }
 }
